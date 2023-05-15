@@ -20,3 +20,5 @@ yarn-error.log
 
 db_compose.yml
 cghooks.lock
+supervisord.log
+supervisord.pid
