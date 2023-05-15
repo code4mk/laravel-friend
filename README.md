@@ -11,3 +11,9 @@ Laravel friend - boilerplate with docker , code style fix, orgranize structure a
 composer run-script cghooks add
 composer run-script cghooks update
 ```
+
+# pint fix (manual)
+
+```bash
+composer run-script pint-fix
+```
