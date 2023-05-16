@@ -3,6 +3,7 @@
   "rules": {
     "no_empty_phpdoc": false,
     "no_empty_statement": false,
-    "no_superfluous_phpdoc_tags": false
+    "no_superfluous_phpdoc_tags": false,
+    "ordered_imports": false
   }
 }

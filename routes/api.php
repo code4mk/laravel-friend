@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\DemoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['prefix' => 'v1', 'middleware' => []], function () {
+
+    // Demo route. (sample).
+    Route::get('/demos', [DemoController::class, 'getDemos']);
+    Route::get('/demos/{demoId}', [DemoController::class, 'getDemoById']);
+    Route::post('/demos', [DemoController::class, 'createDemo']);
+    Route::put('/demos/{demoId}', [DemoController::class, 'updateDemo']);
+    Route::delete('/demos/{demoId}', [DemoController::class, 'deleteDemo']);
 });
