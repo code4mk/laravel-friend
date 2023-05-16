@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exceptions\DataNotFoundException;
+use App\Http\Resources\Demo\DemoResource;
 use App\Repositories\Demo\DemoRepository;
 use App\Http\Resources\Demo\DemoCollection;
-use App\Http\Resources\Demo\DemoResource;
 
 class DemoController extends Controller
 {

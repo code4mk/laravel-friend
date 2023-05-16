@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Repositories\Demo\DemoRepository;
-use App\Repositories\Demo\EloquentDemoRepository;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Demo\DemoRepository;
+use App\Repositories\Demo\EloquentDemoRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
