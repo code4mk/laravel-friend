@@ -4,8 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\Demo\DemoRepository;
-use App\Repositories\Demo\EloquentDemoRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,9 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(DemoRepository::class, function () {
-            return new EloquentDemoRepository();
-        });
+
     }
 
     /**
