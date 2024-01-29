@@ -9,7 +9,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-
 RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:ondrej/php && apt-get update
 RUN apt-get install -y php8.1-bcmath \
@@ -21,7 +20,6 @@ RUN apt-get install -y php8.1-bcmath \
     php8.1-xml \
     php8.1-dom \
     php8.1-mysql
-
 
 # Install nginx and configure.
 RUN apt-get update \
@@ -42,12 +40,22 @@ WORKDIR /var/www/app
 # Copy project code inside working directory.
 COPY . .
 
+# Create log directories and set permissions
+RUN mkdir -p /var/log/php /var/log/nginx && \
+    chown -R www-data:www-data /var/log/php /var/log/nginx
+
+# Fix permissions
+RUN chown -R www-data:www-data /var/www/app/storage \
+    && chmod -R 775 ./storage
+
+
 # Install dependencies with Composer
 RUN composer install --no-interaction --no-dev --prefer-dist --ignore-platform-req=ext-dom
 
-
 # Generate the application key.
 RUN php artisan key:generate
+
+
 
 # Expose port 80 for Nginx
 EXPOSE 81
